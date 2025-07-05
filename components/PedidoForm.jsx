@@ -105,7 +105,7 @@ export default function PedidoForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Tiritas/Crotones */}
           <div>
-            <label className="block font-semibold mb-1">🍟 ¿Agregaste tiritas o crotones?</label>
+            <label className="block font-semibold mb-4">🍟 ¿Agregaste tiritas o crotones?</label>
             <select
               value={form.tiritaOCrotones}
               onChange={e => onChange('tiritaOCrotones', e.target.value)}
@@ -121,7 +121,7 @@ export default function PedidoForm() {
           </div>
           {/* Pasta */}
           <div>
-            <label className="block font-semibold mb-1">🍝 ¿Agregaste pasta?</label>
+            <label className="block font-semibold mb-4">🍝 ¿Agregaste pasta?</label>
             <select
               value={form.pasta}
               onChange={e => onChange('pasta', e.target.value)}

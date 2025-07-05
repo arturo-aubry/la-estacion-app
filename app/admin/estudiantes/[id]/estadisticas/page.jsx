@@ -32,6 +32,16 @@ export default function StudentStatsPage() {
       <h1 className="text-3xl font-bold mb-6">
         Estadísticas de {studentId}
       </h1>
+      {/* ← Regresar */}
+      <div className="text-sm text-gray-500 mb-6 mt-4">
+        <a
+          href="/admin/estudiantes"
+          className="cursor-pointer hover:underline hover:text-gray-700"
+          title="Estudiantes"
+        >
+          ← Regresar a Estudiantes
+        </a>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <StatCard title="Pedidos" value={stats.total} unit="pedidos" />
         <StatCard title="🍟 Tiritas/Crotones" breakdown={stats.tiritaCounts} />

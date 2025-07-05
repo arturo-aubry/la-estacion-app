@@ -45,7 +45,7 @@ export default function EditConstantePage() {
     <main className="p-8 flex justify-center">
       <div className="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow p-6">
         <h1 className="text-2xl font-bold mb-4">
-          Editar {labels[tipo] || 'ingrediente'}: <span className="italic">{antiguo}</span>
+          Editar <span>{antiguo}</span>
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -60,19 +60,20 @@ export default function EditConstantePage() {
               value={nuevo}
               onChange={e => setNuevo(e.target.value)}
               className="border border-gray-300 p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="berenjena"
             />
           </div>
 
           <div className="flex space-x-3">
             <button
               type="submit"
-              className="flex-1 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+              className="flex-1 bg-green-700 text-white px-4 py-2 cursor-pointer rounded hover:bg-green-800 transition"
             >
               Guardar
             </button>
             <Link
               href="/admin/constantes"
-              className="flex-1 text-center bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition"
+              className="flex-1 text-center bg-gray-300 text-gray-800 cursor-pointer px-4 py-2 rounded hover:bg-gray-400 transition"
             >
               Cancelar
             </Link>

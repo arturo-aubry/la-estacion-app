@@ -1,12 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { formatDate } from '@/lib/formatDate';
 
 export default function StudentsPage() {
-  const router = useRouter();
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -37,12 +35,13 @@ export default function StudentsPage() {
 
       {/* ← Regresar */}
       <div className="text-sm text-gray-500 mb-6 mt-4">
-        <span
-          onClick={() => router.back()}
+        <a
+          href="/admin"
           className="cursor-pointer hover:underline hover:text-gray-700"
+          title="Panel de Administración"
         >
-          ← Regresar a la página anterior
-        </span>
+          ← Regresar al Panel de Administración
+        </a>
       </div>
 
       {/* Tabla */}
@@ -51,7 +50,7 @@ export default function StudentsPage() {
           <tr>
             <th className="px-4 py-2 text-left">Clave Única</th>
             <th className="px-4 py-2 text-left">¿Es Admin?</th>
-            <th className="px-4 py-2 text-left">Fecha de creación</th>
+            <th className="px-4 py-2 text-left">Fecha de registro</th>
             <th className="px-4 py-2 text-left">Último inicio de sesión</th>
             <th className="px-4 py-2 text-right">Acciones</th>
           </tr>

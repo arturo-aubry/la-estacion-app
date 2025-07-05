@@ -22,7 +22,7 @@ export default function StatCard({ title, value, list, breakdown }) {
     // Lista de top items
     content = isEmpty ? (
       <p className="text-gray-500 text-sm">
-        Haz tu primera valoración para ver tus estadísticas. =)
+        No hay pedidos registrados.
       </p>
     ) : (
       <ul className="space-y-1">
@@ -38,7 +38,7 @@ export default function StatCard({ title, value, list, breakdown }) {
     // Desglose de conteos
     content = isEmpty ? (
       <p className="text-gray-500 text-sm">
-        Haz tu primera valoración para ver tus estadísticas. =)
+        No hay pedidos registrados.
       </p>
     ) : (
       <ul className="space-y-1">

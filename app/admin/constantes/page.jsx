@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const tipos = [
@@ -12,7 +11,6 @@ const tipos = [
 ];
 
 export default function IngredientesPage() {
-  const router = useRouter();
   const [constantes, setConstantes] = useState({
     vegetales: [], semillas: [], proteinas: [], aderezos: []
   });
@@ -77,17 +75,16 @@ export default function IngredientesPage() {
   return (
     <main className="w-full px-8 py-6 bg-gray-50">
       <h1 className="text-3xl font-bold mb-6">Ingredientes</h1>
-
       {/* ← Regresar */}
       <div className="text-sm text-gray-500 mb-6 mt-4">
-        <span
-          onClick={() => router.back()}
+        <a
+          href="/admin"
           className="cursor-pointer hover:underline hover:text-gray-700"
+          title="Panel de Administración"
         >
-          ← Regresar a la página anterior
-        </span>
+          ← Regresar al Panel de Administración
+        </a>
       </div>
-
       {/* Tabla de ingredientes */}
       <table className="min-w-full bg-white border border-gray-200 rounded-md overflow-hidden text-sm">
         <thead className="bg-gray-100">
@@ -110,7 +107,7 @@ export default function IngredientesPage() {
           <Link
             key={key}
             href={`/admin/constantes/${key}`}
-            className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition"
+            className="bg-green-700 text-white px-4 py-2 cursor-pointer rounded hover:bg-green-800 transition"
           >
             Agregar {label}
           </Link>

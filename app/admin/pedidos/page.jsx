@@ -1,11 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import { formatDate } from '@/lib/formatDate';
 
 export default function PedidosGlobalesPage() {
-  const router = useRouter();
   const [pedidos, setPedidos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,18 +22,17 @@ export default function PedidosGlobalesPage() {
 
   return (
     <main className="w-full px-8 py-6 bg-gray-50">
-      <h1 className="text-3xl font-bold mb-6">Pedidos globales</h1>
-
+      <h1 className="text-3xl font-bold mb-6">Pedidos</h1>
       {/* ← Regresar */}
       <div className="text-sm text-gray-500 mb-6 mt-4">
-        <span
-          onClick={() => router.back()}
+        <a
+          href="/admin"
           className="cursor-pointer hover:underline hover:text-gray-700"
+          title="Panel de Administración"
         >
-          ← Regresar a la página anterior
-        </span>
+          ← Regresar al Panel de Administración
+        </a>
       </div>
-
       <table className="min-w-full bg-white border border-gray-200 rounded-md overflow-hidden text-sm">
         <thead className="bg-gray-100">
           <tr>
@@ -128,7 +125,7 @@ export default function PedidosGlobalesPage() {
                         alert(errMsg);
                       }
                     } catch {
-                      alert('Error de red, intenta de nuevo.');
+                      alert('Error de red, inténtalo de nuevo.');
                     }
                   }}
                   className="text-red-500 hover:text-red-700 cursor-pointer text-xl"

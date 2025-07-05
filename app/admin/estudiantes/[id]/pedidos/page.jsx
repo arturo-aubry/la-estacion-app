@@ -31,7 +31,16 @@ export default function StudentPedidosPage() {
       <h1 className="text-3xl font-bold mb-6">
         Pedidos de {id}
       </h1>
-
+      {/* ← Regresar */}
+      <div className="text-sm text-gray-500 mb-6 mt-4">
+        <a
+          href="/admin/estudiantes"
+          className="cursor-pointer hover:underline hover:text-gray-700"
+          title="Estudiantes"
+        >
+          ← Regresar a Estudiantes
+        </a>
+      </div>
       <table className="min-w-full bg-white border border-gray-200 rounded-md overflow-hidden">
         <thead className="bg-gray-100">
           <tr>

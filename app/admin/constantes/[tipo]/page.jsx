@@ -45,7 +45,7 @@ export default function CreateConstantePage() {
     <main className="p-8 flex justify-center">
       <div className="w-full max-w-md bg-white border border-gray-200 rounded-lg shadow p-6">
         <h1 className="text-2xl font-bold mb-4">
-          Agregar {label}
+          Agregar ingrediente
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -55,13 +55,14 @@ export default function CreateConstantePage() {
 
           <div>
             <label className="block text-gray-700 mb-1">
-              Nuevo nombre:
+              Nuevo {label}:
             </label>
             <input
               type="text"
               value={nombre}
               onChange={e => setNombre(e.target.value)}
               className="border border-gray-300 p-2 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="berenjena"
             />
           </div>
 
@@ -70,11 +71,11 @@ export default function CreateConstantePage() {
               type="submit"
               className="flex-1 bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition cursor-pointer"
             >
-              Crear
+              Agregar
             </button>
             <Link
               href="/admin/constantes"
-              className="flex-1 text-center bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition"
+              className="flex-1 text-center bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400 transition cursor-pointer"
             >
               Cancelar
             </Link>

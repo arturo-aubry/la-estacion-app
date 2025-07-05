@@ -34,9 +34,9 @@ export default function AllPedidosPage() {
 
       {pedidos.length === 0 ? (
         <div className="flex justify-center py-16">
-          <div className="bg-white border border-gray-200 rounded-lg p-8 shadow-sm text-center">
+          <div className="bg-white rounded-lg p-8 shadow-sm text-center">
             <svg
-              className="w-12 h-12 text-gray-300 mx-auto mb-4"
+              className="w-12 h-12 text-green-700 mx-auto mb-4"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
