@@ -1,32 +1,33 @@
 'use client';
-export const dynamic = 'force-dynamic'
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [studentId, setStudentId] = useState('');
   const [pin, setPin] = useState('');
   const [error, setError] = useState('');
   const [justRegistered, setJustRegistered] = useState(false);
-
   const router = useRouter();
-  const params = useSearchParams();
 
+  // Leemos directamente window.location.search
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
     if (params.get('registered') === '1') {
       setJustRegistered(true);
     }
-  }, [params]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
+    // Trim inputs
     const cleanId = studentId.trim();
     const cleanPin = pin.trim();
 
+    // Validación cliente
     if (!/^\d{6}$/.test(cleanId)) {
       return setError('La Clave Única debe ser de 6 dígitos.');
     }
@@ -71,11 +72,13 @@ export default function LoginPage() {
           </p>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {error && (
-            <p className="mb-4 p-2 text-red-600 bg-red-100 rounded">{error}</p>
-          )}
+        {error && (
+          <p className="mb-4 p-2 text-red-600 bg-red-100 rounded">
+            {error}
+          </p>
+        )}
 
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block mb-1">
               Ingresa tu <strong>Clave Única</strong> (6 dígitos):
@@ -89,7 +92,6 @@ export default function LoginPage() {
               placeholder="201234"
             />
           </div>
-
           <div>
             <label className="block mb-1">
               Ingresa tu <strong>NIP</strong> (4 dígitos):
@@ -103,10 +105,9 @@ export default function LoginPage() {
               placeholder="1234"
             />
           </div>
-
           <button
             type="submit"
-            className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded w-full cursor-pointer"
+            className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded w-full"
           >
             Iniciar sesión
           </button>
