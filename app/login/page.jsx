@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [studentId, setStudentId] = useState('');
   const [pin, setPin] = useState('');
   const [error, setError] = useState('');
   const [justRegistered, setJustRegistered] = useState(false);
-  const router = useRouter();
 
-  // Leemos directamente window.location.search
+  // Leemos manualmente el ?registered=1 para el mensaje
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('registered') === '1') {
@@ -23,11 +21,9 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
 
-    // Trim inputs
-    const cleanId = studentId.trim();
+    const cleanId  = studentId.trim();
     const cleanPin = pin.trim();
 
-    // Validación cliente
     if (!/^\d{6}$/.test(cleanId)) {
       return setError('La Clave Única debe ser de 6 dígitos.');
     }
@@ -39,10 +35,13 @@ export default function LoginPage() {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',            // ← Importante
         body: JSON.stringify({ studentId: cleanId, pin: cleanPin })
       });
+
       if (res.ok) {
-        router.replace('/');
+        // Forzamos recarga completa para que la cookie viaje al servidor
+        window.location.href = '/';
       } else {
         const { error } = await res.json();
         setError(error);
