@@ -9,6 +9,7 @@ export default function LoginPage() {
   const [pin, setPin] = useState('');
   const [error, setError] = useState('');
   const [justRegistered, setJustRegistered] = useState(false);
+
   const router = useRouter();
   const params = useSearchParams();
 
@@ -22,11 +23,9 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
 
-    // Trim inputs
     const cleanId = studentId.trim();
     const cleanPin = pin.trim();
 
-    // Client-side validation
     if (!/^\d{6}$/.test(cleanId)) {
       return setError('La Clave Única debe ser de 6 dígitos.');
     }
@@ -57,25 +56,32 @@ export default function LoginPage() {
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
         <h1 className="text-2xl font-bold mb-4">Inicia sesión</h1>
         <p className="mt-4 text-sm mb-6 text-gray-500">
-          O bien,{' '}
+          O bien,&nbsp;
           <Link href="/register" className="text-green-700 hover:underline">
             crea una cuenta
-          </Link> para empezar.
+          </Link>
+          &nbsp;para empezar.
         </p>
         <hr className="border-gray-200 mb-6" />
+
         {justRegistered && (
           <p className="mb-4 p-2 bg-green-100 text-green-800 rounded">
             Tu cuenta se creó correctamente. Inicia sesión con tu Clave Única y NIP.
           </p>
         )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
-          {error && <p className="mb-4 p-2 text-red-600 bg-red-100 rounded">{error}</p>}
+          {error && (
+            <p className="mb-4 p-2 text-red-600 bg-red-100 rounded">{error}</p>
+          )}
 
           <div>
-            <label className="block mb-1">Ingresa tu <strong>Clave Única</strong> (6 dígitos):</label>
+            <label className="block mb-1">
+              Ingresa tu <strong>Clave Única</strong> (6 dígitos):
+            </label>
             <input
-              type="number"
-              maxLength="6"
+              type="text"
+              maxLength={6}
               value={studentId}
               onChange={e => setStudentId(e.target.value)}
               className="border p-2 w-full rounded"
@@ -84,7 +90,9 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="block mb-1">Ingresa tu <strong>NIP</strong> (4 dígitos):</label>
+            <label className="block mb-1">
+              Ingresa tu <strong>NIP</strong> (4 dígitos):
+            </label>
             <input
               type="password"
               maxLength={4}
