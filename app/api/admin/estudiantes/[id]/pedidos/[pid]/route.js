@@ -1,8 +1,6 @@
-// app/api/admin/estudiantes/[id]/pedidos/[pid]/route.js
-
 import { NextResponse } from 'next/server'
-import connectToDatabase from '../../../../../lib/db'
-import Pedido from '../../../../../lib/models/Pedido'
+import connectToDatabase from '../../../../../../lib/db';
+import Pedido            from '../../../../../../lib/models/Pedido';
 
 export async function DELETE(request, { params }) {
   const { pid } = params  // aquí pid es el _id del pedido
