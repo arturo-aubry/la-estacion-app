@@ -45,7 +45,6 @@ export default function Nav() {
 
   return (
     <nav className="w-full bg-white shadow-sm z-10">
-      {/* contenido a ancho completo con padding lateral */}
       <div className="w-full px-8 h-18 flex items-center">
         <ul className="flex items-center w-full space-x-6">
           {/* Logo */}
@@ -100,8 +99,8 @@ export default function Nav() {
           {/* separador flexible */}
           <li className="flex-1" />
 
-          {/* Usuario / Login-Logout */}
-          {session.isLoggedIn ? (
+          {/* Usuario y Logout */}
+          {session.isLoggedIn && (
             <>
               <li className="text-gray-600">¡Hola, {session.studentId}!</li>
               <li>
@@ -113,12 +112,6 @@ export default function Nav() {
                 </button>
               </li>
             </>
-          ) : (
-            <li>
-              <Link href="/login" className={linkClass('/login')}>
-                Iniciar sesión
-              </Link>
-            </li>
           )}
         </ul>
       </div>
