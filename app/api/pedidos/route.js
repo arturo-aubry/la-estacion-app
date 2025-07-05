@@ -1,9 +1,8 @@
-// app/api/pedidos/route.js
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../lib/db';
-import Pedido from '../../../lib/models/Pedido';
-import { apiRateLimiter } from '../../../lib/rate-limit';
+import connectToDatabase from '@/lib/db';
+import Pedido from '@/lib/models/Pedido';
+import { apiRateLimiter } from '@/lib/rate-limit';
 
 export async function POST(request) {
   // ————— Rate limit —————

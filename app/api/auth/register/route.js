@@ -1,9 +1,9 @@
 // app/api/auth/register/route.js
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Student from '../../../../lib/models/Student';
+import connectToDatabase from '@/lib/db';
+import Student from '@/lib/models/Student';
 import bcrypt from 'bcryptjs';
-import { apiRateLimiter } from '../../../../lib/rate-limit';
+import { apiRateLimiter } from '@/lib/rate-limit';
 
 export async function POST(request) {
   // ————— Rate limit —————

@@ -1,4 +1,3 @@
-// app/admin/constantes/[tipo]/page.jsx
 'use client';
 
 import { useState } from 'react';
@@ -7,18 +6,18 @@ import Link from 'next/link';
 
 const labels = {
   vegetales: 'vegetal',
-  semillas:  'semilla',
+  semillas: 'semilla',
   proteinas: 'proteína',
-  aderezos:  'aderezo'
+  aderezos: 'aderezo'
 };
 
 export default function CreateConstantePage() {
   const router = useRouter();
-  const { tipo } = useParams();       // 'vegetales', 'semillas', ...
-  const label = labels[tipo] || tipo; // 'Vegetal', etc.
+  const { tipo } = useParams();
+  const label = labels[tipo] || tipo;
 
   const [nombre, setNombre] = useState('');
-  const [error, setError]   = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async e => {
     e.preventDefault();

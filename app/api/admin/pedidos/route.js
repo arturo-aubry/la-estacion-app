@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Pedido from '../../../../lib/models/Pedido';
+import connectToDatabase from '@/lib/db';
+import Pedido from '@/lib/models/Pedido';
 
 export async function GET() {
   await connectToDatabase();

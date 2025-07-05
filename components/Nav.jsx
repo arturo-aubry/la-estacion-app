@@ -8,8 +8,8 @@ import { usePathname } from 'next/navigation';
 export default function Nav() {
   const [session, setSession] = useState({
     isLoggedIn: false,
-    isAdmin:    false,
-    studentId:  null
+    isAdmin: false,
+    studentId: null
   });
   const pathname = usePathname();
 
@@ -22,8 +22,8 @@ export default function Nav() {
       .then(data => {
         setSession({
           isLoggedIn: true,
-          isAdmin:    data.isAdmin,
-          studentId:  data.studentId
+          isAdmin: data.isAdmin,
+          studentId: data.studentId
         });
       })
       .catch(() => {
@@ -36,7 +36,7 @@ export default function Nav() {
   };
 
   const linkClass = (href) => {
-    const base   = 'px-2 py-1 rounded';
+    const base = 'px-2 py-1 rounded';
     const active = pathname === href
       ? 'text-green-700 font-semibold'
       : 'text-gray-600 hover:text-green-700 hover:underline';

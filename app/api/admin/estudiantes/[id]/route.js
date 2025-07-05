@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../../../lib/db';
-import Student from '../../../../../../lib/models/Student';
+import connectToDatabase from '@/lib/db';
+import Student from '@/lib/models/Student';
 
 // GET /api/admin/estudiantes/[id] - obtener un estudiante
 export async function GET(request, { params }) {

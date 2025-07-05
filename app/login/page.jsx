@@ -1,4 +1,3 @@
-// app/login/page.jsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -6,12 +5,12 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {
-  const [studentId, setStudentId]           = useState('');
-  const [pin, setPin]                       = useState('');
-  const [error, setError]                   = useState('');
+  const [studentId, setStudentId] = useState('');
+  const [pin, setPin] = useState('');
+  const [error, setError] = useState('');
   const [justRegistered, setJustRegistered] = useState(false);
-  const router                              = useRouter();
-  const params                              = useSearchParams();
+  const router = useRouter();
+  const params = useSearchParams();
 
   useEffect(() => {
     if (params.get('registered') === '1') {
@@ -24,7 +23,7 @@ export default function LoginPage() {
     setError('');
 
     // Trim inputs
-    const cleanId  = studentId.trim();
+    const cleanId = studentId.trim();
     const cleanPin = pin.trim();
 
     // Client-side validation
@@ -58,10 +57,10 @@ export default function LoginPage() {
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
         <h1 className="text-2xl font-bold mb-4">Inicia sesión</h1>
         <p className="mt-4 text-sm mb-6 text-gray-500">
-            O bien,{' '}
-            <Link href="/register" className="text-green-700 hover:underline">
-              crea una cuenta
-            </Link> para empezar.
+          O bien,{' '}
+          <Link href="/register" className="text-green-700 hover:underline">
+            crea una cuenta
+          </Link> para empezar.
         </p>
         <hr className="border-gray-200 mb-6" />
         {justRegistered && (

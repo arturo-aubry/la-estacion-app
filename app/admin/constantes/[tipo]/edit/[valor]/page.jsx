@@ -1,4 +1,3 @@
-// app/admin/constantes/[tipo]/edit/[valor]/page.jsx
 'use client';
 
 import { useState } from 'react';
@@ -7,16 +6,16 @@ import Link from 'next/link';
 
 const labels = {
   vegetales: 'el vegetal',
-  semillas:  'la semilla',
+  semillas: 'la semilla',
   proteinas: 'la proteína',
-  aderezos:  'el aderezo'
+  aderezos: 'el aderezo'
 };
 
 export default function EditConstantePage() {
   const router = useRouter();
   const params = useParams();
-  const tipo   = params.tipo;      // e.g. 'vegetales'
-  const antiguo= params.valor;     // nombre actual
+  const tipo = params.tipo;
+  const antiguo = params.valor;
   const [nuevo, setNuevo] = useState(antiguo);
   const [error, setError] = useState('');
 

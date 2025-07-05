@@ -1,7 +1,6 @@
-// app/api/estadisticas/global/route.js
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Pedido from '../../../../lib/models/Pedido';
+import connectToDatabase from '@/lib/db';
+import Pedido from '@/lib/models/Pedido';
 
 export async function GET() {
   await connectToDatabase();
@@ -16,10 +15,10 @@ export async function GET() {
       { $limit: limit }
     ])).map(x => ({ name: x._id, count: x.count }));
 
-  const topProteinas  = await aggTop('proteinas', 3);
-  const topVegetales  = await aggTop('vegetales', 3);
-  const topAderezos   = await aggTop('aderezos',   3);
-  const topSemillas   = await aggTop('semillas',   3);
+  const topProteinas = await aggTop('proteinas', 3);
+  const topVegetales = await aggTop('vegetales', 3);
+  const topAderezos = await aggTop('aderezos', 3);
+  const topSemillas = await aggTop('semillas', 3);
 
   const tiritaCounts = (await Pedido.aggregate([
     { $group: { _id: '$tiritaOCrotones', count: { $sum: 1 } } }

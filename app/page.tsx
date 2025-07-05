@@ -1,6 +1,6 @@
 'use client';
 
-import PedidoForm from '../components/PedidoForm';
+import PedidoForm from '@/components/PedidoForm';
 
 export default function Home() {
   return (

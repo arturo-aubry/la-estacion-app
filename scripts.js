@@ -10,7 +10,7 @@ async function addOrderIds() {
   console.log(`Asignando IDs a ${pedidos.length} pedidos...`);
 
   for (const p of pedidos) {
-    p.orderId = Math.random().toString(36).substring(2,8).toUpperCase();
+    p.orderId = Math.random().toString(36).substring(2, 8).toUpperCase();
     await p.save();
     console.log(`Pedido ${p._id} ➔ ${p.orderId}`);
   }

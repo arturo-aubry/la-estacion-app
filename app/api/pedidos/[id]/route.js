@@ -1,5 +1,5 @@
-import connectToDatabase from '../../../../lib/db';
-import Pedido from '../../../../lib/models/Pedido';
+import connectToDatabase from '@/lib/db';
+import Pedido from '@/lib/models/Pedido';
 
 export async function DELETE(request, { params }) {
   const { id } = params;    // viene de /api/pedidos/:id

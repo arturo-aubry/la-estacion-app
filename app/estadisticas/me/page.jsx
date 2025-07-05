@@ -1,9 +1,8 @@
-// app/estadisticas/me/page.jsx
 'use client';
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import StatCard from '../../../components/StatCard';
+import StatCard from '@/components/StatCard';
 
 export default function MyStatsPage() {
   const [stats, setStats] = useState(null);

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { formatDate } from '../../../../../lib/formatDate';
+import { formatDate } from '@/lib/formatDate';
 
 export default function StudentPedidosPage() {
   const { id } = useParams();
@@ -72,10 +72,10 @@ export default function StudentPedidosPage() {
                 </span>
               </td>
               <td className="px-4 py-2 text-center">
-                <button 
+                <button
                   onClick={() => handleDelete(p._id)}
                   className="text-lg cursor-pointer text-center"
-                  >🗑️</button>
+                >🗑️</button>
               </td>
             </tr>
           ))}

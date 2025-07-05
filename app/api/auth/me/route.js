@@ -1,4 +1,3 @@
-// app/api/auth/me/route.js
 import { NextResponse } from 'next/server';
 
 export async function GET(request) {
@@ -20,6 +19,6 @@ export async function GET(request) {
   // 3) Devolver studentId + isAdmin
   return NextResponse.json({
     studentId: session.studentId,
-    isAdmin:   !!session.isAdmin
+    isAdmin: !!session.isAdmin
   });
 }

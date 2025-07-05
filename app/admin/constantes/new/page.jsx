@@ -1,4 +1,3 @@
-// app/admin/constantes/new/page.jsx
 'use client';
 
 import { useState } from 'react';

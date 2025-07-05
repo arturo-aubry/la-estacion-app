@@ -1,13 +1,12 @@
-// app/api/admin/estudiantes/route.js
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Student from '../../../../lib/models/Student';
+import connectToDatabase from '@/lib/db';
+import Student from '@/lib/models/Student';
 
 export async function GET() {
   await connectToDatabase();
   const list = await Student.find({})
     .sort({ createdAt: 1 })
-    .select('studentId isAdmin createdAt lastLogin')  // añadimos lastLogin
+    .select('studentId isAdmin createdAt lastLogin')
     .lean();
   return NextResponse.json(list);
 }
@@ -16,7 +15,6 @@ export async function POST(request) {
   const { studentId, pin, isAdmin } = await request.json();
   await connectToDatabase();
   try {
-    // Usamos el virtual `pin` para hashear
     const created = await Student.create({ studentId, pin, isAdmin: !!isAdmin });
     return NextResponse.json(created, { status: 201 });
   } catch (err) {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { formatDate } from '../../../lib/formatDate';
+import { formatDate } from '@/lib/formatDate';
 
 export default function PedidosGlobalesPage() {
   const router = useRouter();

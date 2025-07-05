@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { formatDate } from '../../../lib/formatDate';
+import { formatDate } from '@./lib/formatDate';
 
 export default function StudentsPage() {
   const router = useRouter();

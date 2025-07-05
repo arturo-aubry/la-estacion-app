@@ -1,11 +1,10 @@
-// app/api/admin/constantes/[tipo]/route.js
-import connectToDatabase from '../../../../../lib/db';
+import connectToDatabase from '@/lib/db';
 import {
   Vegetal,
   Semilla,
   Proteina,
   Aderezo
-} from '../../../../../lib/models/Constantes';
+} from '@/lib/models/Constantes';
 
 const modelMap = {
   vegetales: Vegetal,

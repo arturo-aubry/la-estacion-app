@@ -1,7 +1,6 @@
-// app/api/estadisticas/[id]/route.js
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Pedido from '../../../../lib/models/Pedido';
+import connectToDatabase from '@/lib/db';
+import Pedido from '@/lib/models/Pedido';
 
 export async function GET(request, { params }) {
   const { id } = params; // aquí id === studentId
@@ -14,8 +13,8 @@ export async function GET(request, { params }) {
   // 2) conteos de tiritaOCrotones y pasta
   const tiritas = await Pedido.countDocuments({ studentId: id, tiritaOCrotones: 'tiritas' });
   const crotones = await Pedido.countDocuments({ studentId: id, tiritaOCrotones: 'crotones' });
-  const ambas    = await Pedido.countDocuments({ studentId: id, tiritaOCrotones: 'ambos' });
-  const ninguna  = await Pedido.countDocuments({ studentId: id, tiritaOCrotones: 'ninguno' });
+  const ambas = await Pedido.countDocuments({ studentId: id, tiritaOCrotones: 'ambos' });
+  const ninguna = await Pedido.countDocuments({ studentId: id, tiritaOCrotones: 'ninguno' });
 
   const pastaSí = await Pedido.countDocuments({ studentId: id, pasta: 'sí' });
   const pastaNo = total - pastaSí;
@@ -42,7 +41,7 @@ export async function GET(request, { params }) {
   return NextResponse.json({
     total,
     tiritaCounts: { tiritas, crotones, ambas, ninguna },
-    pastaCounts:  { sí: pastaSí, no: pastaNo },
+    pastaCounts: { sí: pastaSí, no: pastaNo },
     topProteinas,
     topVegetales,
     topSemillas,

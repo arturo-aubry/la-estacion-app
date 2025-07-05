@@ -1,4 +1,3 @@
-// components/StatCard.jsx
 'use client';
 
 export default function StatCard({ title, value, list, breakdown }) {

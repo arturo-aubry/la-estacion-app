@@ -1,7 +1,6 @@
-// app/api/estadisticas/me/route.js
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Pedido from '../../../../lib/models/Pedido';
+import connectToDatabase from '@/lib/db';
+import Pedido from '@/lib/models/Pedido';
 
 export async function GET(request) {
   // 1) Leer sesión
@@ -9,7 +8,7 @@ export async function GET(request) {
   let session = null;
   try {
     session = cookie && JSON.parse(decodeURIComponent(cookie));
-  } catch {}
+  } catch { }
   if (!session?.studentId) {
     return NextResponse.json({ error: 'No autenticado' }, { status: 401 });
   }
@@ -70,11 +69,11 @@ export async function GET(request) {
 
   return NextResponse.json({
     total,
-    topProteinas:   topProteinas.map(x => ({ name: x._id, count: x.count })),
-    topVegetales:   topVegetales.map(x => ({ name: x._id, count: x.count })),
-    topAderezos:    topAderezos.map(x => ({ name: x._id, count: x.count })),
-    topSemillas:    topSemillas.map(x => ({ name: x._id, count: x.count })),
-    tiritaCounts:   tiritaCounts.reduce((o, x) => ({ ...o, [x._id]: x.count }), {}),
-    pastaCounts:    pastaCounts.reduce((o, x) => ({ ...o, [x._id]: x.count }), {}),
+    topProteinas: topProteinas.map(x => ({ name: x._id, count: x.count })),
+    topVegetales: topVegetales.map(x => ({ name: x._id, count: x.count })),
+    topAderezos: topAderezos.map(x => ({ name: x._id, count: x.count })),
+    topSemillas: topSemillas.map(x => ({ name: x._id, count: x.count })),
+    tiritaCounts: tiritaCounts.reduce((o, x) => ({ ...o, [x._id]: x.count }), {}),
+    pastaCounts: pastaCounts.reduce((o, x) => ({ ...o, [x._id]: x.count }), {}),
   });
 }

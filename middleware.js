@@ -52,8 +52,8 @@ export function middleware(req) {
 
 export const config = {
   matcher: [
-    '/', 
-    '/pedidos/:path*', 
+    '/',
+    '/pedidos/:path*',
     '/api/pedidos/:path*',
     '/admin/:path*',
     '/api/admin/:path*',

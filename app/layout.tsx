@@ -1,6 +1,6 @@
-// app/layout.jsx
-import './globals.css';
-import Nav from '../components/Nav';
+
+import '@/globals.css';
+import Nav from '@/components/Nav';
 
 export const metadata = {
   title: '¡Valora tu Ensalada!',

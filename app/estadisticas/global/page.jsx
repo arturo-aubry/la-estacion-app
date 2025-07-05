@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import StatCard from '../../../components/StatCard';
+import StatCard from '@/components/StatCard';
 
 export default function GlobalStatsPage() {
   const router = useRouter();
@@ -33,13 +33,13 @@ export default function GlobalStatsPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <StatCard title="Pedidos"                    value={stats.total} />
-        <StatCard title="🍟 Tiritas/Crotones"         breakdown={stats.tiritaCounts} />
-        <StatCard title="🍝 Pasta"                    breakdown={stats.pastaCounts} />
-        <StatCard title="🍅 Top 3 vegetales"          list={stats.topVegetales} />
-        <StatCard title="🍗 Top 3 proteínas"          list={stats.topProteinas} />
-        <StatCard title="🌻 Top 3 semillas"           list={stats.topSemillas} />
-        <StatCard title="🥫 Top 3 aderezos"           list={stats.topAderezos} />
+        <StatCard title="Pedidos" value={stats.total} />
+        <StatCard title="🍟 Tiritas/Crotones" breakdown={stats.tiritaCounts} />
+        <StatCard title="🍝 Pasta" breakdown={stats.pastaCounts} />
+        <StatCard title="🍅 Top 3 vegetales" list={stats.topVegetales} />
+        <StatCard title="🍗 Top 3 proteínas" list={stats.topProteinas} />
+        <StatCard title="🌻 Top 3 semillas" list={stats.topSemillas} />
+        <StatCard title="🥫 Top 3 aderezos" list={stats.topAderezos} />
       </div>
     </main>
   );

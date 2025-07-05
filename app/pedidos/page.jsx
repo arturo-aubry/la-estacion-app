@@ -1,6 +1,6 @@
 'use client';
 
-import { formatDate } from '../../lib/formatDate';
+import { formatDate } from '@/lib/formatDate';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -74,12 +74,12 @@ export default function AllPedidosPage() {
                 <p><strong>🥫 Aderezos:</strong> {p.aderezos.join(', ')}</p>
               </div>
               <div className="mt-2 flex items-center justify-between">
-                <p><strong>⭐️ Valoración: </strong> 
-                <span className="text-green-700 text-xl">
-                  {Array(p.calificacion).fill().map((_, i) => (
-                    <span key={i}>★</span>
-                  ))}
-                </span></p>
+                <p><strong>⭐️ Valoración: </strong>
+                  <span className="text-green-700 text-xl">
+                    {Array(p.calificacion).fill().map((_, i) => (
+                      <span key={i}>★</span>
+                    ))}
+                  </span></p>
                 <button
                   onClick={async () => {
                     if (!confirm(`¿Quieres eliminar el pedido ${p.orderId}?`)) return;

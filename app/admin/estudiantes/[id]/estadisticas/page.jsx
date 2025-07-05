@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import StatCard from '../../../../../components/StatCard';
+import StatCard from '@/components/StatCard';
 
 export default function StudentStatsPage() {
   const { id: studentId } = useParams();

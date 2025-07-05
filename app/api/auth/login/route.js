@@ -1,11 +1,10 @@
-// app/api/auth/login/route.js
 import { NextResponse } from 'next/server';
-import connectToDatabase from '../../../../lib/db';
-import Student from '../../../../lib/models/Student';
-import { apiRateLimiter } from '../../../../lib/rate-limit';
+import connectToDatabase from '@/lib/db';
+import Student from '@/lib/models/Student';
+import { apiRateLimiter } from '@/lib/rate-limit';
 
 export async function POST(request) {
-  // ————— Rate limit —————
+  // 0) Rate limit
   try {
     const ip = request.headers.get('x-forwarded-for') || 'unknown';
     await apiRateLimiter.consume(ip);
